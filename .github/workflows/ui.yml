@@ -1,0 +1,17 @@
+name: ui
+on: { push: { branches: [main] }, pull_request: {} }
+permissions: { contents: read }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with: { persist-credentials: false }
+      - name: JavaScript syntax
+        run: node --check ui/app.js
+      - name: No third-party scripts or styles (strict CSP, no trackers)
+        run: "! grep -nE '<script[^>]+src=\"https?:|<link[^>]+href=\"https?:' ui/index.html"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with: { repository: "${{ github.repository_owner }}/gjallar", path: core, persist-credentials: false }
+      - name: Core embeds the same UI
+        run: diff -r ui core/cmd/gjallar-web/static

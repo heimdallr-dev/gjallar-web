@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gjallar · Kubernetes risk</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">ᚷ</span> Gjallar <small id="ver"></small></div>
+    <nav id="nav">
+      <a href="#risks" data-view="risks">Risks</a>
+      <a href="#images" data-view="images">Images</a>
+      <a href="#posture" data-view="posture">Posture</a>
+      <a href="#licenses" data-view="licenses">Licenses</a>
+      <a href="#patches" data-view="patches">Patches</a>
+      <a href="#analytics" data-view="analytics">Analytics</a>
+    </nav>
+    <div class="who" id="who"></div>
+  </header>
+  <main>
+    <section class="cards" id="cards" aria-label="Summary"></section>
+    <section id="view" aria-live="polite"></section>
+  </main>
+  <dialog id="dlg"><form method="dialog"><div id="dlg-body"></div><menu><button value="close">Close</button></menu></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+:root {
+  --bg: #f6f5f1; --panel: #fff; --ink: #1f1e1b; --muted: #6b6960; --line: #e3e0d8;
+  --urgent: #a32d2d; --urgent-bg: #fcebeb; --high: #854f0b; --high-bg: #faeeda;
+  --medium: #185fa5; --medium-bg: #e6f1fb; --low: #5f5e5a; --low-bg: #f1efe8;
+  --accent: #0f6e56; --radius: 8px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #161614; --panel: #1f1f1c; --ink: #ecebe6; --muted: #a09e95; --line: #33322d;
+    --urgent: #f09595; --urgent-bg: #3a1a1a; --high: #fac775; --high-bg: #3a2a10;
+    --medium: #85b7eb; --medium-bg: #10263c; --low: #b4b2a9; --low-bg: #2a2a27; --accent: #5dcaa5; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-size: 14px; line-height: 1.5; }
+.top { display: flex; gap: 24px; align-items: center; padding: 12px 24px; background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+.brand { font-weight: 500; font-size: 17px; white-space: nowrap; }
+.brand small { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 4px; }
+.mark { color: var(--accent); font-size: 20px; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; flex: 1; }
+nav a { color: var(--muted); text-decoration: none; padding: 6px 10px; border-radius: var(--radius); }
+nav a.on, nav a:hover { color: var(--ink); background: var(--bg); }
+.who { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.who button { margin-left: 8px; }
+main { padding: 20px 24px 48px; max-width: 1400px; margin: 0 auto; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.card .k { color: var(--muted); font-size: 12px; }
+.card .v { font-size: 24px; font-weight: 500; }
+.card.urgent .v { color: var(--urgent); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; overflow-x: auto; }
+.bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.bar h2 { font-size: 16px; font-weight: 500; margin: 0 auto 0 0; }
+input, select, textarea, button { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 6px 10px; }
+button { cursor: pointer; background: var(--panel); }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+textarea { width: 100%; min-height: 110px; font-family: ui-monospace, monospace; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; font-size: 12px; position: sticky; top: 0; background: var(--panel); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+code, .mono { font-family: ui-monospace, monospace; font-size: 12px; }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+.pill.urgent { color: var(--urgent); background: var(--urgent-bg); }
+.pill.high { color: var(--high); background: var(--high-bg); }
+.pill.medium { color: var(--medium); background: var(--medium-bg); }
+.pill.low, .pill.unknown, .pill.negligible { color: var(--low); background: var(--low-bg); }
+.pill.critical { color: var(--urgent); background: var(--urgent-bg); }
+.pill.denied { color: var(--urgent); background: var(--urgent-bg); }
+.tag { color: var(--muted); font-size: 12px; }
+.reasons { color: var(--muted); font-size: 12px; }
+.empty, .err { padding: 24px; text-align: center; color: var(--muted); }
+.err { color: var(--urgent); }
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--ink); max-width: 720px; width: 90vw; }
+dialog menu { display: flex; justify-content: flex-end; padding: 0; margin: 12px 0 0; }
+.login { max-width: 420px; margin: 80px auto; text-align: center; }
+.gap-top { margin-top: 8px; }
